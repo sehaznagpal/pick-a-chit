@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-color: #F3ECDD;
+    --ink-color: #1A1A1A;
+    --paper-color: #FBF8F0;
+    --paper-ink: #1A1A1A;
+    --modal-bg: #F3ECDD;
+    --card-bg: #FBF8F0;
+    --accent-blue: #2447D6;
+    --handwriting-color: #2447D6;
+  }
+
+  .dark {
+    --bg-color: #1C1C1E;
+    --ink-color: #EDE9E0;
+    --paper-color: #EDE9E0;
+    --paper-ink: #1A1A1A;
+    --modal-bg: #1C1C1E;
+    --card-bg: #252528;
+    --accent-blue: #5B78FF;
+    --handwriting-color: #2447D6;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: var(--bg-color);
+    color: var(--ink-color);
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive, sans-serif;
+}
+
+.font-mono-chit {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+/* Bowl breathing animation */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1) translateY(0px);
+  }
+  50% {
+    transform: scale(1.02) translateY(-4px);
+  }
+}
+
+.animate-breathe {
+  animation: breathe 4.5s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+/* Bowl wobble when pulling */
+@keyframes bowlWobble {
+  0% { transform: rotate(0deg) scale(1); }
+  20% { transform: rotate(-3deg) scale(0.98); }
+  40% { transform: rotate(3deg) scale(1.02); }
+  60% { transform: rotate(-2deg) scale(0.99); }
+  80% { transform: rotate(1deg) scale(1.01); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+.animate-bowl-wobble {
+  animation: bowlWobble 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  transform-origin: center bottom;
+}
+
+/* Done bowl settle jiggle */
+@keyframes settleJiggle {
+  0% { transform: scale(1) translateY(0); }
+  30% { transform: scale(1.08, 0.92) translateY(3px); }
+  60% { transform: scale(0.96, 1.04) translateY(-2px); }
+  80% { transform: scale(1.02, 0.98) translateY(1px); }
+  100% { transform: scale(1, 1) translateY(0); }
+}
+
+.animate-settle {
+  animation: settleJiggle 0.5s ease-out;
+  transform-origin: center bottom;
+}
+
+/* Perspective paper fold */
+.perspective-container {
+  perspective: 1000px;
+}
+
+/* Custom scrollbars inside overlays */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: currentColor;
+  opacity: 0.25;
+  border-radius: 2px;
+}

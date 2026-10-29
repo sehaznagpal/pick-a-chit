@@ -1,0 +1,8 @@
+{
+  "name": "Pick a Chit",
+  "description": "A daily learning ritual: pull one folded paper chit from a bowl, speak about the topic for one minute, and mark it done.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
